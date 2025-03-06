@@ -16,8 +16,11 @@ A project using OpenTofu 1.9 to deploy a VXLAN network in a homelab combining ph
 - **MTU:**  
   - Outer: 9169  
   - Inner: 9119  
-- **Underlay:** OSPF on `10.240.[leaf][spine].0/31` (point-to-point links)  
+- **Underlay:** OSPF on `10.240.[leaf][spine].0/31` (point-to-point links)
+  - this pattern allows for 24 leaves and 9 spines. Use ipv6 or unnumbered underlay otherwise 
 - **Overlay:** iBGP-EVPN on `10.240.[254-255].[id]/32` - Loopback
+  - Spines - 255
+  - Leaves - 254
 - **VXLAN:** Head-end replication
 
 **Deployment Steps:**  
